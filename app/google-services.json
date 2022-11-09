@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1081401903014",
+    "project_id": "expense-sharing-eef35",
+    "storage_bucket": "expense-sharing-eef35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1081401903014:android:1d06d8e5e707e448d7f167",
+        "android_client_info": {
+          "package_name": "com.example.expensesharing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1081401903014-uudv1fbdu74qkn0tppo45fk5snp3kr7m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.expensesharing",
+            "certificate_hash": "21a1311dd2ae049d6942e4c8e061871f67f82b0e"
+          }
+        },
+        {
+          "client_id": "1081401903014-k7os7sqeqao4pp759dtdtn6tm8fle21l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBjVB3Bfq81yvVxyXWUBK9IjI6fC31dqsY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1081401903014-k7os7sqeqao4pp759dtdtn6tm8fle21l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
