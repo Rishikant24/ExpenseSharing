@@ -7,52 +7,127 @@
     android:padding="16dp"
     tools:context=".NewMember">
 
+
     <EditText
-        android:id="@+id/grpName"
+        android:id="@+id/memName"
         android:layout_width="377dp"
         android:layout_height="63dp"
         android:ems="10"
-        android:hint="Enter Group Name"
+        android:hint="Member Name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.217" />
+        app:layout_constraintVertical_bias="0.118" />
 
     <EditText
-        android:id="@+id/grpExpense"
+        android:id="@+id/mailID"
         android:layout_width="377dp"
         android:layout_height="63dp"
+        android:ems="10"
+        android:hint="Mail-ID"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.352"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/memExpense"
+        android:layout_width="376dp"
+        android:layout_height="66dp"
         android:ems="10"
         android:hint="Total Expense"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/grpName"
-        app:layout_constraintVertical_bias="0.137" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.243" />
 
     <Button
         android:id="@+id/btnCreate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="228dp"
-        android:text="Create efm,g eGroup"
+        android:text="Add Member"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/grpName"
+        app:layout_constraintTop_toBottomOf="@+id/memName"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/disp"
-        android:layout_width="79dp"
-        android:layout_height="39dp"
-        android:text="TextView"
+        android:layout_width="350dp"
+        android:layout_height="42dp"
+        android:text="How would you like to split the Money ?"
+        android:textColor="#0E0202"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnCreate"
-        app:layout_constraintVertical_bias="0.258" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.426" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="359dp"
+        android:layout_height="144dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.566">
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="186dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="34dp"
+            android:text="Shares" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="186dp"
+            android:layout_height="55dp"
+            android:text="Amount" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/Amount"
+        android:layout_width="377dp"
+        android:layout_height="63dp"
+        android:ems="10"
+        android:hint="Amount"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.882"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.787" />
+
+    <EditText
+        android:id="@+id/Shares"
+        android:layout_width="377dp"
+        android:layout_height="63dp"
+        android:layout_marginBottom="136dp"
+        android:ems="10"
+        android:hint="Percentage(Share)"
+        android:inputType="textPersonName"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintVertical_bias="1.0" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
