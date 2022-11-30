@@ -44,11 +44,11 @@
 
 
     <Button
-        android:id="@+id/addGroupButton"
+        android:id="@+id/grpadd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/black"
-        android:text="New Group"
+        android:text="Create New Group"
         app:layout_constraintBottom_toTopOf="@+id/signOutBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

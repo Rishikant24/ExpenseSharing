@@ -2,6 +2,7 @@ package com.example.expensesharing
 
 
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
@@ -17,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 class Dashboard : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
 
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
@@ -41,6 +43,17 @@ class Dashboard : AppCompatActivity() {
                 .signOut()
             startActivity(Intent(this, MainActivity:: class.java))
         }
+
+        findViewById<Button>(R.id.grpadd).setOnClickListener {
+            val intent = Intent(this, NewGroup::class.java)
+            startActivity(intent)
+        }
+
+        findViewById<Button>(R.id.existingGroupsButton).setOnClickListener {
+            val intent = Intent(this, Group_List::class.java)
+            startActivity(intent)
+        }
+
 
     }
 
