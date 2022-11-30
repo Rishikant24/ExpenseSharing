@@ -30,6 +30,16 @@ class Group_Info : AppCompatActivity() {
         val frag2: Button = findViewById(R.id.fragment2Btn)
         //frag1.text = message
 
+        frag1.setOnClickListener()
+        {
+
+            val intent = Intent(this, MemberList::class.java).also {
+                it.putExtra("grpid", message)
+                startActivity(it)
+            }
+            //intent.putExtra("grpId", grpId)
+            //startActivity(intent)
+        }
         frag2.setOnClickListener()
         {
 
