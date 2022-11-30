@@ -60,7 +60,7 @@ class NewMember : AppCompatActivity() {
             }
 
         }
-        dbRef = FirebaseDatabase.getInstance().getReference("Members")
+        dbRef = FirebaseDatabase.getInstance().getReference("$message")
 
         btnCreate.setOnClickListener {
             saveMemberData("$message")
@@ -113,7 +113,7 @@ class NewMember : AppCompatActivity() {
 
         val member = MemberData(memId, mem_Name, mem_Expense, mail_ID, Due, user_ID, message)
 
-        dbRef.child("$message").setValue(member)
+        dbRef.child(memId).setValue(member)
             .addOnCompleteListener {
                 Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_LONG).show()
 

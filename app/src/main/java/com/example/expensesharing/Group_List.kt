@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
 
+
 class Group_List : AppCompatActivity() {
     private lateinit var dbref : DatabaseReference
     private lateinit var userRecyclerview : RecyclerView
@@ -53,13 +54,13 @@ class Group_List : AppCompatActivity() {
                             //Toast.makeText(this@Group_List,"Peace Out",Toast.LENGTH_SHORT).show()
 
                             val viewid = findViewById<TextView>(R.id.tvage)
-                            val message = viewid.text
-                            val intent = Intent(this@Group_List, Group_Info::class.java).also {
+                            var message = viewid.text.toString()
+                            val intent = Intent(this@Group_List, Group_Info::class.java)/*.also {
                                 it.putExtra("grpid", message)
                                 startActivity(it)
-                            }
-                            /*intent.putExtra("grpId", userArrayList[position].grp_Name)
-                            startActivity(intent)*/
+                            }*/
+                            intent.putExtra("grpId", userArrayList[position].grpId)
+                            startActivity(intent)
                         }
                     })
 

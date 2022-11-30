@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.expensesharing.databinding.ActivityMainBinding
 
 
+
 class Group_Info : AppCompatActivity() {
 
 
@@ -17,10 +18,13 @@ class Group_Info : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_group_info)
 
-        //val bundle : Bundle?= intent.extras
-        //val grpId = bundle!!.getString("grpID")
+        val bundle : Bundle?= intent.extras
+        val grpId = bundle!!.getString("grpId")
 
-        val message = intent.getStringExtra("grpid")
+        //val bundle: Bundle? = intent.extras
+        //val message: String? = intent.getString("grpId")
+
+        var message = grpId
 
         val frag1: Button = findViewById(R.id.fragment1Btn)
         val frag2: Button = findViewById(R.id.fragment2Btn)
