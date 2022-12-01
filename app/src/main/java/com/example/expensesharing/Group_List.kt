@@ -8,6 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 
@@ -47,7 +48,8 @@ class Group_List : AppCompatActivity() {
 
     private fun getUserData() {
 
-        dbref = FirebaseDatabase.getInstance().getReference("Groups")
+        val user_ID = FirebaseAuth.getInstance().currentUser?.uid
+        dbref = FirebaseDatabase.getInstance().getReference("$user_ID")
 
         dbref.addValueEventListener(object : ValueEventListener {
 

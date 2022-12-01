@@ -113,7 +113,7 @@ class NewMember : AppCompatActivity() {
 
         val member = MemberData(memId, mem_Name, mem_Expense, mail_ID, Due, user_ID, message)
 
-        dbRef.child(memId).setValue(member)
+        dbRef.child(mail_ID).setValue(member)
             .addOnCompleteListener {
                 Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_LONG).show()
 

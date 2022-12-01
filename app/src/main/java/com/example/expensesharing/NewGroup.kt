@@ -25,8 +25,9 @@ class NewGroup : AppCompatActivity() {
         grpExpense = findViewById(R.id.grpExpense)
         btnCreate = findViewById(R.id.btnCreate)
 
-        dbRef = FirebaseDatabase.getInstance().getReference("Groups")
-        val userID = FirebaseAuth.getInstance().currentUser
+        val user_ID = FirebaseAuth.getInstance().currentUser?.uid
+        dbRef = FirebaseDatabase.getInstance().getReference("$user_ID")
+
 
         btnCreate.setOnClickListener {
             saveGroupData()

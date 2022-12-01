@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background"
-    tools:context=".UpdateGroup">
+    tools:context=".DeleteMember">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="180dp"
-            android:text="UPDATE GROUP"
+            android:text="DELETE MEMBER"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -38,38 +38,11 @@
             android:id="@+id/userName"
             android:layout_width="360dp"
             android:layout_height="50dp"
-            android:layout_marginTop="56dp"
+            android:layout_marginTop="36dp"
             android:background="@drawable/input"
-            android:hint="GroupName"
+            android:hint="Enter the Mail-ID of the member"
             android:paddingLeft="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.509"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-        <EditText
-            android:id="@+id/firstName"
-            android:layout_width="360dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="152dp"
-            android:background="@drawable/input"
-            android:hint="New Group Name"
-            android:paddingLeft="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.509"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-        <EditText
-            android:id="@+id/lastname"
-            android:layout_width="360dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="240dp"
-            android:background="@drawable/input"
-            android:hint="Expense"
-            android:paddingLeft="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -78,9 +51,9 @@
             android:layout_width="360dp"
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="548dp"
+            android:layout_marginTop="436dp"
             android:backgroundTint="@color/teal_200"
-            android:text="Update Data"
+            android:text="Delete Member"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.509"
             app:layout_constraintStart_toStartOf="parent"

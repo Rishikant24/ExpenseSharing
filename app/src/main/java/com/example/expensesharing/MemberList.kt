@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,6 +31,26 @@ class MemberList : AppCompatActivity() {
         userArrayList = arrayListOf<MemberData>()
         //val texty: TextView = findViewById(R.id.textView2)
         //texty.text = message
+
+        val btn1: Button = findViewById(R.id.button1)
+        val btn2: Button = findViewById(R.id.button2)
+
+        btn1.setOnClickListener()
+        {
+            val intent = Intent(this@MemberList, DeleteMember::class.java).also {
+                it.putExtra("grpid", message)
+                startActivity(it)
+            }
+
+        }
+
+        btn2.setOnClickListener()
+        {
+            val intent = Intent(this@MemberList, UpdateDues::class.java).also {
+                it.putExtra("grpid", message)
+                startActivity(it)
+            }
+        }
 
         getUserData("$message")
 
