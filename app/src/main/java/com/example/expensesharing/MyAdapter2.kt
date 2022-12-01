@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MyAdapter2(private val userList : ArrayList<MemberData>) : RecyclerView.Adapter<MyAdapter2.MyViewHolder>() {
 
-    private lateinit var mListener : onItemClickListener
+    private lateinit var mListener2 : onItemClickListener
 
     interface onItemClickListener{
         fun onItemClick(position: Int)
@@ -16,14 +16,14 @@ class MyAdapter2(private val userList : ArrayList<MemberData>) : RecyclerView.Ad
 
     fun setOnItemClickListener(listener: onItemClickListener)
     {
-        mListener = listener
+        mListener2 = listener
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
 
         val itemView = LayoutInflater.from(parent.context).inflate(
             R.layout.activity_member_item,
             parent,false)
-        return MyViewHolder(itemView, mListener)
+        return MyViewHolder(itemView, mListener2)
 
     }
 

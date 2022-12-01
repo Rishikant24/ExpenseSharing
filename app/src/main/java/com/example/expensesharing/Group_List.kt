@@ -3,6 +3,7 @@ package com.example.expensesharing
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -25,6 +26,21 @@ class Group_List : AppCompatActivity() {
         userRecyclerview.setHasFixedSize(true)
 
         userArrayList = arrayListOf<GroupData>()
+
+        val btn1: Button = findViewById(R.id.button1)
+        val btn2: Button = findViewById(R.id.button2)
+
+        btn1.setOnClickListener()
+        {
+            val intent = Intent(this@Group_List, DeleteGroup::class.java)
+            startActivity(intent)
+        }
+
+        btn2.setOnClickListener()
+        {
+            val intent = Intent(this@Group_List, UpdateGroup::class.java)
+            startActivity(intent)
+        }
         getUserData()
 
     }
@@ -53,8 +69,8 @@ class Group_List : AppCompatActivity() {
                         override fun onItemClick(position: Int) {
                             //Toast.makeText(this@Group_List,"Peace Out",Toast.LENGTH_SHORT).show()
 
-                            val viewid = findViewById<TextView>(R.id.tvage)
-                            var message = viewid.text.toString()
+                            //val viewid = findViewById<TextView>(R.id.tvage)
+                            //var message = viewid.text.toString()
                             val intent = Intent(this@Group_List, Group_Info::class.java)/*.also {
                                 it.putExtra("grpid", message)
                                 startActivity(it)

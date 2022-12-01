@@ -52,7 +52,7 @@ class NewGroup : AppCompatActivity() {
 
         val group = GroupData(grpId, grp_Name, grp_Expense, user_ID)
 
-        dbRef.child(grpId).setValue(group)
+        dbRef.child(grp_Name).setValue(group)
             .addOnCompleteListener {
                 Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_LONG).show()
 

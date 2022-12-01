@@ -37,7 +37,7 @@ class MemberList : AppCompatActivity() {
 
     private fun getUserData(message: String) {
 
-        dbref = FirebaseDatabase.getInstance().getReference("-NHwPT56R186NKO_azQd")
+        dbref = FirebaseDatabase.getInstance().getReference("$message")
 
         dbref.addValueEventListener(object : ValueEventListener {
 
@@ -53,7 +53,22 @@ class MemberList : AppCompatActivity() {
 
                     }
 
-                    userRecyclerview.adapter = MyAdapter2(userArrayList)
+                    var varadapter = MyAdapter2(userArrayList)
+                    userRecyclerview.adapter = varadapter
+                    varadapter.setOnItemClickListener(object: MyAdapter2.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+                            //Toast.makeText(this@Group_List,"Peace Out",Toast.LENGTH_SHORT).show()
+
+                            //val viewid = findViewById<TextView>(R.id.tvage)
+                            //var message = viewid.text.toString()
+                          //  val intent = Intent(this@Group_List, Group_Info::class.java)*//*.also {
+                            //    it.putExtra("grpid", message)
+                              //  startActivity(it)
+                            //}
+                            //intent.putExtra("grpId", userArrayList[position].grpId)
+                            //startActivity(intent)
+                        }
+                    })
 
 
                 }
