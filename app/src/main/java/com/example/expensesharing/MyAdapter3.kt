@@ -6,9 +6,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+
 class MyAdapter3(private val userList : ArrayList<TripData>) : RecyclerView.Adapter<MyAdapter3.MyViewHolder>() {
 
     private lateinit var mListener2 : onItemClickListener
+    lateinit var payy : String
+    lateinit var sum : String
 
     interface onItemClickListener{
         fun onItemClick(position: Int)
@@ -34,6 +37,10 @@ class MyAdapter3(private val userList : ArrayList<TripData>) : RecyclerView.Adap
         holder.firstName.text = currentitem.Trip_Name
         holder.lastName.text = currentitem.Size
         holder.age.text = currentitem.Trip_Expense
+        payy = currentitem.Payer.toString()
+        sum = currentitem.sum.toString()
+
+        holder.payer.text = "Each member of the Group owes $payy : $sum rupees"
 
     }
 
@@ -48,6 +55,8 @@ class MyAdapter3(private val userList : ArrayList<TripData>) : RecyclerView.Adap
         val firstName : TextView = itemView.findViewById(R.id.tvfirstName)
         val lastName : TextView = itemView.findViewById(R.id.tvlastName)
         val age : TextView = itemView.findViewById(R.id.tvmail)
+        val payer : TextView = itemView.findViewById(R.id.tvpayer)
+
 
         init{
             itemView.setOnClickListener(){

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Half.toFloat
 import android.view.View
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -23,6 +24,7 @@ class UpdateDues : AppCompatActivity() {
     private lateinit var Shares: EditText
     private lateinit var Amount: EditText
     private lateinit var Size: EditText
+    private lateinit var Payer: EditText
     private lateinit var database : DatabaseReference
     private lateinit var database2 : DatabaseReference
     private lateinit var userArrayList : ArrayList<MemberData>
@@ -42,13 +44,15 @@ class UpdateDues : AppCompatActivity() {
         Shares = findViewById(R.id.Shares)
         btnCreate = findViewById(R.id.btnCreate)
         Size = findViewById(R.id.size)
+        Payer = findViewById(R.id.payer)
+        val box: CheckBox = findViewById(R.id.checkBox)
         userArrayList = arrayListOf<MemberData>()
 
         userArrayList.clear()
         val doofus: TextView = findViewById(R.id.disp)
         val message = intent.getStringExtra("grpid")
         //doofus.text = message
-
+        var bool: Int
         val r1: EditText = findViewById(R.id.Shares)
         val r2: EditText = findViewById(R.id.Amount)
         // Assigning id of RadioGroup
@@ -66,19 +70,30 @@ class UpdateDues : AppCompatActivity() {
             }
 
         }
+
+
         database = FirebaseDatabase.getInstance().getReference("$message")
 
         btnCreate.setOnClickListener {
-            saveMemberData("$message")
+            if(box.isChecked){
+                bool = 1
+                //Toast.makeText(this, "$bool", Toast.LENGTH_LONG).show()
+            }
+            else{
+                bool = 0
+            }
+            //Toast.makeText(this, "$bool", Toast.LENGTH_LONG).show()
+            saveMemberData("$message",bool)
         }
 
     }
 
-    private fun readData(Due: String, message: String, size: String) {
+    private fun readData(Due: String, message: String, size: String, bool: Int) {
 
         var a: Float = 0f
         var b: Float = 0f
         var c: Float = 0f
+        //Toast.makeText(this, "$bool", Toast.LENGTH_LONG).show()
        database = FirebaseDatabase.getInstance().getReference("$message")
         var f : Int = size.toInt()
         var g : Int = f-1
@@ -106,8 +121,17 @@ class UpdateDues : AppCompatActivity() {
                         }
                         c = a + b
                         var Due2 = c.toString()
-                        if (mail1 != null) {
-                            FirebaseDatabase.getInstance().getReference("$message").child(mail1).child("due").setValue(Due2)
+                        if (mail1 != null ) {
+                            if(bool == 0) {
+                                FirebaseDatabase.getInstance().getReference("$message").child(mail1)
+                                    .child("due").setValue(Due2)
+                            }
+                            else{
+                                FirebaseDatabase.getInstance().getReference("$message").child(mail1)
+                                    .child("due").setValue(Due)
+
+
+                            }
                         }
                     }
 
@@ -124,7 +148,7 @@ class UpdateDues : AppCompatActivity() {
     })
     }
 
-    private fun saveMemberData(message: String) {
+    private fun saveMemberData(message: String,bool : Int) {
 
         database2 = FirebaseDatabase.getInstance().getReference("Trips/$message")
         var a: Float = 0f
@@ -139,6 +163,7 @@ class UpdateDues : AppCompatActivity() {
         val Shares_s = Shares.text.toString()
         val Amount_s = Amount.text.toString()
         val size = Size.text.toString()
+        val payer = Payer.text.toString()
         val Due: String
         val user_ID = FirebaseAuth.getInstance().currentUser?.uid
 
@@ -161,18 +186,18 @@ class UpdateDues : AppCompatActivity() {
             d = c*b
             Due = d.toString()
             Toast.makeText(this, "$Due is added to each member's Dues", Toast.LENGTH_LONG).show()
-            readData(Due, message, size)
+            readData(Due, message, size, bool)
         }
         else{
             Due = Amount.text.toString()
-            readData(Due, message, size)
+            readData(Due, message, size, bool)
         }
 
 
 
         val tripId = database2.push().key!!
 
-        val trip = TripData(tripId, mem_Name, mem_Expense, size , message)
+        val trip = TripData(tripId, mem_Name, mem_Expense,payer,Due,size, message)
 
         database2.child(tripId).setValue(trip)
             .addOnCompleteListener {

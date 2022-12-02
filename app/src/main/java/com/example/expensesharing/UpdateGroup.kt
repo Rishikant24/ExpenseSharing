@@ -23,16 +23,16 @@ class UpdateGroup : AppCompatActivity() {
 
             val userName = binding.userName.text.toString()
             val firstName = binding.firstName.text.toString()
-            val lastName = binding.lastname.text.toString()
+            //val lastName = binding.lastname.text.toString()
             //val age = binding.age.text.toString()
 
-            updateData(userName,firstName,lastName)
+            updateData(userName,firstName)
 
         }
 
     }
 
-    private fun updateData(userName: String, firstName: String, lastName: String) {
+    private fun updateData(userName: String, firstName: String) {
 
         val user_ID = FirebaseAuth.getInstance().currentUser?.uid
         database = FirebaseDatabase.getInstance().getReference("$user_ID")
@@ -45,7 +45,6 @@ class UpdateGroup : AppCompatActivity() {
 
                  f1 = it.child("grpId").value.toString()
                  f2 = it.child("user_ID").value.toString()
-
                 //Toast.makeText(this,"Successfuly Read",Toast.LENGTH_SHORT).show()
                 /*binding.etusername.text.clear()
                 binding.tvFirstName.text = firstname.toString()
@@ -53,7 +52,6 @@ class UpdateGroup : AppCompatActivity() {
                 binding.tvAge.text = age.toString()*/
                 val user = mapOf<String,String>(
                     "grp_Name" to firstName,
-                    "grp_Expense" to lastName,
                     "grpId" to f1,
                     "user_ID" to f2
                 )
@@ -61,8 +59,9 @@ class UpdateGroup : AppCompatActivity() {
 
                     binding.userName.text.clear()
                     binding.firstName.text.clear()
-                    binding.lastname.text.clear()
+                    //binding.lastname.text.clear()
                     // binding.age.text.clear()
+
                     Toast.makeText(this,"Successfuly Updated",Toast.LENGTH_SHORT).show()
 
 

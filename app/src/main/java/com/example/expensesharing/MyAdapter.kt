@@ -35,7 +35,7 @@ class MyAdapter(private val userList : ArrayList<GroupData>) : RecyclerView.Adap
         val currentitem = userList[position]
 
         holder.firstName.text = currentitem.grp_Name
-        holder.lastName.text = currentitem.grp_Expense
+        //holder.lastName.text = currentitem.grp_Expense
         //holder.age.text = currentitem.grpId
 
     }
@@ -49,7 +49,7 @@ class MyAdapter(private val userList : ArrayList<GroupData>) : RecyclerView.Adap
     class MyViewHolder(itemView : View, listener: onItemClickListener) : RecyclerView.ViewHolder(itemView){
 
         val firstName : TextView = itemView.findViewById(R.id.tvfirstName)
-        val lastName : TextView = itemView.findViewById(R.id.tvlastName)
+        //val lastName : TextView = itemView.findViewById(R.id.tvlastName)
         //val age : TextView = itemView.findViewById(R.id.tvage)
 
         init{

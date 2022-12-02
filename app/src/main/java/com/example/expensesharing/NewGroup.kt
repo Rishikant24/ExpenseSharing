@@ -22,7 +22,7 @@ class NewGroup : AppCompatActivity() {
         setContentView(R.layout.activity_new_group)
 
         grpName = findViewById(R.id.grpName)
-        grpExpense = findViewById(R.id.grpExpense)
+        //grpExpense = findViewById(R.id.grpExpense)
         btnCreate = findViewById(R.id.btnCreate)
 
         val user_ID = FirebaseAuth.getInstance().currentUser?.uid
@@ -38,27 +38,27 @@ class NewGroup : AppCompatActivity() {
 
         //getting values
         val grp_Name = grpName.text.toString()
-        val grp_Expense = grpExpense.text.toString()
+        //val grp_Expense = grpExpense.text.toString()
         val user_ID = FirebaseAuth.getInstance().currentUser?.uid
 
         if (grp_Name.isEmpty()) {
             grpName.error = "Please enter group name"
         }
-        if (grp_Expense.isEmpty()) {
+ /*       if (grp_Expense.isEmpty()) {
             grpExpense.error = "Please enter the total expenditure"
-        }
+        }*/
 
 
         val grpId = dbRef.push().key!!
 
-        val group = GroupData(grpId, grp_Name, grp_Expense, user_ID)
+        val group = GroupData(grpId, grp_Name, user_ID)
 
         dbRef.child(grp_Name).setValue(group)
             .addOnCompleteListener {
                 Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_LONG).show()
 
                 grpName.text.clear()
-                grpExpense.text.clear()
+                //grpExpense.text.clear()
 
 
             }.addOnFailureListener { err ->

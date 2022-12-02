@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="8dp"
-    app:cardCornerRadius="8dp"
+    app:cardElevation="10dp"
+    app:cardCornerRadius="10dp"
     android:layout_margin="16dp">
 
     <LinearLayout
@@ -23,19 +23,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Member Name: "
+                android:text="Name: "
                 android:textColor="@color/black"
-                android:textSize="26sp"
-                android:textStyle="bold"/>
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/tvfirstName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:fontFamily="@font/roboto_medium"
                 android:text="Arya"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="24sp" />
 
         </LinearLayout>
 
@@ -48,20 +48,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mail Id: "
+                android:text="Mail: "
                 android:textColor="@color/black"
-                android:textSize="26sp"
-                android:textStyle="bold"/>
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/tvlastName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_medium"
                 android:text="Stark"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
-
+                android:textSize="24sp" />
 
 
         </LinearLayout>
@@ -77,17 +76,17 @@
                 android:layout_height="wrap_content"
                 android:text="Dues: "
                 android:textColor="@color/black"
-                android:textSize="26sp"
-                android:textStyle="bold"/>
+                android:textSize="22sp" />
 
             <TextView
                 android:id="@+id/tvmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
+                android:fontFamily="@font/roboto_medium"
                 android:text="Stark"
                 android:textColor="@color/black"
-                android:textSize="20sp"/>
+                android:textSize="24sp" />
 
 
 
