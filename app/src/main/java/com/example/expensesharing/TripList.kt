@@ -1,0 +1,108 @@
+package com.example.expensesharing
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.*
+
+
+
+class TripList : AppCompatActivity() {
+    private lateinit var dbref : DatabaseReference
+    private lateinit var userRecyclerview : RecyclerView
+    private lateinit var userArrayList : ArrayList<TripData>
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_trip_list)
+
+        val message = intent.getStringExtra("grpid")
+        userRecyclerview = findViewById(R.id.userList)
+        userRecyclerview.layoutManager = LinearLayoutManager(this)
+        userRecyclerview.setHasFixedSize(true)
+
+        userArrayList = arrayListOf<TripData>()
+        //val texty: TextView = findViewById(R.id.textView2)
+        //texty.text = message
+
+        /*val btn1: Button = findViewById(R.id.button1)
+        val btn2: Button = findViewById(R.id.button2)
+
+        btn1.setOnClickListener()
+        {
+            val intent = Intent(this@MemberList, DeleteMember::class.java).also {
+                it.putExtra("grpid", message)
+                startActivity(it)
+            }
+
+        }
+
+        btn2.setOnClickListener()
+        {
+            val intent = Intent(this@MemberList, UpdateDues::class.java).also {
+                it.putExtra("grpid", message)
+                startActivity(it)
+            }
+        }*/
+
+        getUserData("$message")
+
+    }
+
+    private fun getUserData(message: String) {
+
+        dbref = FirebaseDatabase.getInstance().getReference("Trips/$message")
+
+        dbref.addValueEventListener(object : ValueEventListener {
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+                if (snapshot.exists()){
+
+                    for (userSnapshot in snapshot.children){
+
+
+                        val user = userSnapshot.getValue(TripData::class.java)
+                        userArrayList.add(user!!)
+
+                    }
+
+                    var varadapter = MyAdapter3(userArrayList)
+                    userRecyclerview.adapter = varadapter
+                    varadapter.setOnItemClickListener(object: MyAdapter3.onItemClickListener{
+                        override fun onItemClick(position: Int) {
+                            //Toast.makeText(this@Group_List,"Peace Out",Toast.LENGTH_SHORT).show()
+
+                            //val viewid = findViewById<TextView>(R.id.tvage)
+                            //var message = viewid.text.toString()
+                            //  val intent = Intent(this@Group_List, Group_Info::class.java)*//*.also {
+                            //    it.putExtra("grpid", message)
+                            //  startActivity(it)
+                            //}
+                            //intent.putExtra("grpId", userArrayList[position].grpId)
+                            //startActivity(intent)
+                        }
+                    })
+
+
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+
+        })
+
+    }
+}

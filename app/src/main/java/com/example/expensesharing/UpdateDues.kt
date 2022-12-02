@@ -126,6 +126,7 @@ class UpdateDues : AppCompatActivity() {
 
     private fun saveMemberData(message: String) {
 
+        database2 = FirebaseDatabase.getInstance().getReference("Trips/$message")
         var a: Float = 0f
         var b: Float = 0f
         var c: Float = 0f
@@ -159,7 +160,7 @@ class UpdateDues : AppCompatActivity() {
             c = a/100
             d = c*b
             Due = d.toString()
-            Toast.makeText(this, "$Due", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "$Due is added to each member's Dues", Toast.LENGTH_LONG).show()
             readData(Due, message, size)
         }
         else{
@@ -169,24 +170,24 @@ class UpdateDues : AppCompatActivity() {
 
 
 
-       /* val memId = dbRef.push().key!!
+        val tripId = database2.push().key!!
 
-        val member = MemberData(memId, mem_Name, mem_Expense, mail_ID, Due, user_ID, message)
+        val trip = TripData(tripId, mem_Name, mem_Expense, size , message)
 
-        dbRef.child(mail_ID).setValue(member)
+        database2.child(tripId).setValue(trip)
             .addOnCompleteListener {
                 Toast.makeText(this, "Data inserted successfully", Toast.LENGTH_LONG).show()
 
-                memName.text.clear()
-                memExpense.text.clear()
-                mailID.text.clear()
+                TripName.text.clear()
+                TripExpense.text.clear()
+                Size.text.clear()
                 Amount.text.clear()
                 Shares.text.clear()
 
 
             }.addOnFailureListener { err ->
                 Toast.makeText(this, "Error ${err.message}", Toast.LENGTH_LONG).show()
-            }*/
+            }
 
     }
 

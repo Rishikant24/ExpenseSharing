@@ -28,6 +28,7 @@ class Group_Info : AppCompatActivity() {
 
         val frag1: Button = findViewById(R.id.fragment1Btn)
         val frag2: Button = findViewById(R.id.fragment2Btn)
+        val frag3: Button = findViewById(R.id.fragment3Btn)
         //frag1.text = message
 
         frag1.setOnClickListener()
@@ -44,6 +45,17 @@ class Group_Info : AppCompatActivity() {
         {
 
             val intent = Intent(this, NewMember::class.java).also {
+                it.putExtra("grpid", message)
+                startActivity(it)
+            }
+            //intent.putExtra("grpId", grpId)
+            //startActivity(intent)
+        }
+
+        frag3.setOnClickListener()
+        {
+
+            val intent = Intent(this, TripList::class.java).also {
                 it.putExtra("grpid", message)
                 startActivity(it)
             }
